@@ -11,6 +11,17 @@ export default function Home() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 sm:px-8">
       <header className="pt-20 pb-14 sm:pt-28 sm:pb-20">
+        {/* Plain img on purpose, same reason as the screenshot strips. The site
+            is a static export, so next/image optimization never runs. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/henry.jpg"
+          alt=""
+          width={400}
+          height={400}
+          decoding="async"
+          className="mb-7 h-16 w-16 rounded-full border border-rule object-cover sm:h-20 sm:w-20"
+        />
         <h1 className="font-display text-5xl leading-[1.05] tracking-tight sm:text-7xl">
           {site.name}
         </h1>

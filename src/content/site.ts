@@ -1,5 +1,8 @@
 export const site = {
   name: "Henry Hai Nguyen",
+  // The canonical origin. Every absolute URL on the site is built off this, so
+  // a custom domain later is a one line change here.
+  url: "https://henryhai.vercel.app",
   role: "Software Engineer, AI Automation + Full-Stack",
   email: "hhnguy10@uci.edu",
   github: "https://github.com/henry-hai",
