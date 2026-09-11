@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
+import { Shots } from "./Shots";
 import { Tag } from "./Tag";
 
 const linkClass =
@@ -23,7 +24,9 @@ export function ProjectCard({
         {number}
       </span>
 
-      <div>
+      {/* min-w-0 so the screenshot strip scrolls inside this column instead of
+          stretching it, which would put a horizontal scrollbar on the page. */}
+      <div className="min-w-0">
         <h3 className="font-display text-2xl leading-tight sm:text-3xl">
           {project.name}
         </h3>
@@ -37,6 +40,8 @@ export function ProjectCard({
             {project.note}
           </p>
         ) : null}
+
+        <Shots shots={project.shots} label={project.name} />
 
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {project.stack.map((item) => (
