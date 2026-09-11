@@ -56,5 +56,5 @@ export const stack = [
 export const beforeThis = [
   "I cut hair for 14 years and ran my own book the whole time. Booking, pricing, rescheduling, the no-shows, the clients who only text at midnight. The booking platform below exists because I was the one answering those texts, and because the thing I wanted did not exist at a price a single chair could justify.",
   "It is also most of what I know about shipping something people have to use every day. A booking form that loses a request is not a bug report, it is a client standing outside a locked shop.",
-  "I boxed for UC Irvine and finished a national semi-finalist.",
+  "I competed for UC Irvine's Boxing Team and finished as a semi-finalist at Nationals.",
 ] as const;
