@@ -4,7 +4,7 @@ export const site = {
   email: "hhnguy10@uci.edu",
   github: "https://github.com/henry-hai",
   linkedin: "https://www.linkedin.com/in/henryhai99",
-  location: "Irvine and Milpitas, California",
+  location: "Irvine & Milpitas, California",
   title: "Henry Hai Nguyen",
   description:
     "MSWE candidate at UC Irvine building agentic systems and full-stack applications. Selected work, with the code behind each one.",
