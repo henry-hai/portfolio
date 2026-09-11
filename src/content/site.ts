@@ -1,6 +1,6 @@
 export const site = {
   name: "Henry Hai Nguyen",
-  role: "Software engineer, AI automation and full stack",
+  role: "Software Engineer, AI Automation + Full-Stack",
   email: "hhnguy10@uci.edu",
   github: "https://github.com/henry-hai",
   linkedin: "https://www.linkedin.com/in/henryhai99",
