@@ -1,3 +1,13 @@
+export type Shot = {
+  src: string;
+  alt: string;
+  // Intrinsic pixel size. It reserves the right box before the file arrives, so
+  // nothing jumps as the strip fills in, and a lazy image with no known width is
+  // one the browser will happily never get around to loading.
+  w: number;
+  h: number;
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -9,6 +19,9 @@ export type Project = {
   // Short statement of what the project is not, shown on the card. Every one of
   // these exists because the claim next to it is easy to read as more than it is.
   note?: string;
+  // Ordered, so the strip reads as a walk through the thing rather than a pile
+  // of pictures. Empty where the repo has no screenshots to show.
+  shots: Shot[];
 };
 
 export const projects: Project[] = [
@@ -20,6 +33,44 @@ export const projects: Project[] = [
     repo: "https://github.com/henry-hai/SentryQuery-AI",
     caseStudy: "/work/sentryquery",
     note: "Runs locally against your own index. Nothing is hosted.",
+    shots: [
+      {
+        src: "/shots/sentryquery/rag-answer.jpg",
+        alt: "A grounded answer with the Critic's green verified badge and a confidence score",
+        w: 1400,
+        h: 1383,
+      },
+      {
+        src: "/shots/sentryquery/critic-revision.jpg",
+        alt: "The Critic flagging an unsupported claim and forcing a revision, shown by an amber badge",
+        w: 1400,
+        h: 1393,
+      },
+      {
+        src: "/shots/sentryquery/rag-sources.jpg",
+        alt: "The exact source chunks the agent consulted, expanded by document and page",
+        w: 1370,
+        h: 1400,
+      },
+      {
+        src: "/shots/sentryquery/tavily-web-search.jpg",
+        alt: "A live web search result, marked as not verified against the indexed documents",
+        w: 1373,
+        h: 1400,
+      },
+      {
+        src: "/shots/sentryquery/guardrail-refusal.jpg",
+        alt: "An off-topic question refused before any tool call is made",
+        w: 1400,
+        h: 797,
+      },
+      {
+        src: "/shots/sentryquery/observability.jpg",
+        alt: "Structured run logging with tool routing, verdict and revision count",
+        w: 1400,
+        h: 761,
+      },
+    ],
   },
   {
     slug: "barber-booking",
@@ -29,6 +80,74 @@ export const projects: Project[] = [
     repo: "https://github.com/henry-hai/barber-booking",
     live: "https://henryhaistudio.com",
     note: "No payments, no calendar sync, no user accounts. Bookings are requests, not a confirmed calendar.",
+    shots: [
+      {
+        src: "/shots/barber-booking/01-hero.jpg",
+        alt: "Landing page with the triptych hero and the numbered navigation",
+        w: 1903,
+        h: 802,
+      },
+      {
+        src: "/shots/barber-booking/02-about.jpg",
+        alt: "About section",
+        w: 1904,
+        h: 447,
+      },
+      {
+        src: "/shots/barber-booking/03-services.jpg",
+        alt: "Services and pricing",
+        w: 1905,
+        h: 917,
+      },
+      {
+        src: "/shots/barber-booking/04-gallery.jpg",
+        alt: "Tabbed gallery of work",
+        w: 1905,
+        h: 918,
+      },
+      {
+        src: "/shots/barber-booking/05-locations.jpg",
+        alt: "Locations section",
+        w: 1904,
+        h: 520,
+      },
+      {
+        src: "/shots/barber-booking/06-booking-form.jpg",
+        alt: "Appointment request form with three preferred slots",
+        w: 1905,
+        h: 918,
+      },
+      {
+        src: "/shots/barber-booking/07-booking-form-footer.jpg",
+        alt: "Booking policies and submit",
+        w: 1905,
+        h: 918,
+      },
+      {
+        src: "/shots/barber-booking/08-confirmation.jpg",
+        alt: "Confirmation shown after a booking is accepted",
+        w: 708,
+        h: 260,
+      },
+      {
+        src: "/shots/barber-booking/dashboard.jpg",
+        alt: "The appointments dashboard, with client details redacted",
+        w: 1400,
+        h: 761,
+      },
+      {
+        src: "/shots/barber-booking/09-mobile-hero.jpg",
+        alt: "The hero on a phone, a single frame rather than the desktop triptych",
+        w: 456,
+        h: 731,
+      },
+      {
+        src: "/shots/barber-booking/10-mobile-menu.jpg",
+        alt: "Full-screen navigation menu on a phone",
+        w: 456,
+        h: 692,
+      },
+    ],
   },
   {
     slug: "arthouse-ops",
@@ -37,6 +156,20 @@ export const projects: Project[] = [
     stack: ["Python", "Claude API", "GitHub Actions", "Google Sheets API", "PHP", "pytest"],
     repo: "https://github.com/henry-hai/arthouse-ops",
     note: "117 tests in the suite, 107 of them in CI. The 10 that stay out read recorded payloads that are never committed.",
+    shots: [
+      {
+        src: "/shots/arthouse-ops/1-dashboard.jpg",
+        alt: "The lead triage dashboard, showing the messages that still need a person. Contact details and figures redacted.",
+        w: 1400,
+        h: 763,
+      },
+      {
+        src: "/shots/arthouse-ops/2-charts.jpg",
+        alt: "Message volume by category and quarterly figures on a dual axis, redacted.",
+        w: 1400,
+        h: 765,
+      },
+    ],
   },
   {
     slug: "ai-hairstyler",
@@ -45,6 +178,7 @@ export const projects: Project[] = [
     stack: ["Python", "scikit-learn", "PyTorch", "MediaPipe", "FastAPI", "React"],
     repo: "https://github.com/henry-hai/AI-Hairstyle-Recommender",
     note: "The confidence number is the forest's own probability. Calibration was tried and rejected because it zeroed the smallest class.",
+    shots: [],
   },
   {
     slug: "grantsmith",
@@ -53,5 +187,6 @@ export const projects: Project[] = [
     stack: ["Python", "RAG", "OpenAI", "Anthropic", "numpy", "python-docx"],
     repo: "https://github.com/henry-hai/grantsmith",
     note: "Provider agnostic. The model id and the provider are two environment variables, not a code change.",
+    shots: [],
   },
 ];

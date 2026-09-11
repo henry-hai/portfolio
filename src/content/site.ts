@@ -1,10 +1,10 @@
 export const site = {
   name: "Henry Hai Nguyen",
-  role: "Software engineer, AI automation and full stack",
+  role: "Software Engineer, AI Automation + Full-Stack",
   email: "hhnguy10@uci.edu",
   github: "https://github.com/henry-hai",
   linkedin: "https://www.linkedin.com/in/henryhai99",
-  location: "Irvine and Milpitas, California",
+  location: "Irvine & Milpitas, California",
   title: "Henry Hai Nguyen",
   description:
     "MSWE candidate at UC Irvine building agentic systems and full-stack applications. Selected work, with the code behind each one.",
@@ -53,5 +53,5 @@ export const stack = [
 export const beforeThis = [
   "I cut hair for 14 years and ran my own book the whole time. Booking, pricing, rescheduling, the no-shows, the clients who only text at midnight. The booking platform below exists because I was the one answering those texts, and because the thing I wanted did not exist at a price a single chair could justify.",
   "It is also most of what I know about shipping something people have to use every day. A booking form that loses a request is not a bug report, it is a client standing outside a locked shop.",
-  "I boxed for UC Irvine and finished a national semi-finalist. I do not compete now.",
+  "I boxed for UC Irvine and finished a national semi-finalist.",
 ] as const;

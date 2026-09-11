@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CaseStudyNav, type NavItem } from "@/components/CaseStudyNav";
 import { PipelineDiagram } from "@/components/PipelineDiagram";
+import { Shots } from "@/components/Shots";
 import { Footer } from "@/components/Footer";
 import { projects } from "@/content/projects";
 
@@ -98,6 +99,7 @@ export default function SentryQueryCaseStudy() {
           graph rather than a wrapper around it, which is what makes the loop
           back to the Researcher possible.
         </P>
+        <Shots shots={project.shots} label="SentryQuery" />
         <PipelineDiagram />
         <P>
           The load-bearing detail is that the Critic reads the chunks that were

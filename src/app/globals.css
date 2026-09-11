@@ -11,7 +11,7 @@
   --foreground: #1a1918;
   --muted: #6b6862;
   --rule: #e2ded7;
-  --accent: #a24a21;
+  --accent: #2f4f6f;
 }
 
 :root[data-theme="dark"] {
@@ -20,7 +20,7 @@
   --foreground: #eceae5;
   --muted: #9b958c;
   --rule: #2b2926;
-  --accent: #e08a5c;
+  --accent: #9dbcd8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,7 +30,7 @@
     --foreground: #eceae5;
     --muted: #9b958c;
     --rule: #2b2926;
-    --accent: #e08a5c;
+    --accent: #9dbcd8;
   }
 }
 
@@ -81,4 +81,27 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/*
+  A visible, thin scrollbar on the screenshot strips. Hiding it looks tidier and
+  then nobody knows there are more shots to the right.
+*/
+.shot-strip {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+  overscroll-behavior-x: contain;
+}
+
+.shot-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.shot-strip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.shot-strip::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: 999px;
 }
