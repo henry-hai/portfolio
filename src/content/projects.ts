@@ -36,6 +36,24 @@ export const projects: Project[] = [
     note: "Deployed on a free tier, so it sleeps after fifteen minutes and the first request takes about forty seconds. No users, no traffic. The corpus is three FY2025 annual filings, not the whole market.",
     shots: [
       {
+        src: "/shots/sentryquery/verify-form-and-verdict.jpg",
+        alt: "The verify page stating what you send and what you get back, with a claim about Deere returning a red FAIL",
+        w: 800,
+        h: 801,
+      },
+      {
+        src: "/shots/sentryquery/verify-evidence-passage.jpg",
+        alt: "The Critic's reason next to the exact passage it read, named by document and page, showing the real figure beside the prior year",
+        w: 800,
+        h: 801,
+      },
+      {
+        src: "/shots/sentryquery/verify-api-contract.jpg",
+        alt: "The same check as one curl request, returning verdict, reason code and evidence as JSON a program can branch on",
+        w: 800,
+        h: 801,
+      },
+      {
         src: "/shots/sentryquery/rag-answer.jpg",
         alt: "A grounded answer with the Critic's green verified badge and a confidence score",
         w: 1400,
