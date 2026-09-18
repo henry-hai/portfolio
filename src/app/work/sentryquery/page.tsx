@@ -215,13 +215,16 @@ export default function SentryQueryCaseStudy() {
           it is the only performance number I claim here.
         </P>
         <P>
-          Nothing is deployed. There is no hosted instance, no users, and no
-          latency or accuracy figure to quote. It runs locally against your own
-          Pinecone index and your own keys, in a virtual environment or in the
-          container, and the container is a run mode rather than a deployment.
-          The corpus indexed for the demo is three public annual filings from
-          different sectors, and no document or company name is hard-coded
-          anywhere.
+          It is deployed now, on a free tier, so you can send it a claim
+          yourself. That is a demo and not a product: there are no users, no
+          traffic and no service guarantee, the instance sleeps after fifteen
+          minutes and the first request after that takes about forty seconds
+          while it wakes. A warm uncached claim comes back in eight to eleven
+          seconds, and there is still no accuracy figure to quote, only a test
+          pass count. It also runs locally against your own Pinecone index and
+          your own keys, in a virtual environment or in the container. The
+          corpus is three public annual filings from different sectors, and no
+          document or company name is hard-coded anywhere.
         </P>
         <P>
           <a href={project.repo} className={linkClass}>
