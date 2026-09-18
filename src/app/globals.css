@@ -94,6 +94,27 @@ body {
   background: transparent;
 }
 
+/*
+  The full-bleed strip on the home page. The padding centres the first and last
+  shot in the same column the text sits in, so a strip at rest lines up with the
+  paragraph above it and the next shot peeks in from the right. max() is what
+  keeps it sane once the viewport is narrower than the reading column. max-w-3xl
+  is 48rem, so half of it is 24rem, and px-6 is 1.5rem.
+
+  The scrollbar is hidden here and only here. On a strip that runs the whole
+  viewport it is a line across the page, and the counter, the arrows and the
+  next shot already say there is more to the right.
+*/
+.shot-strip-bleed {
+  padding-left: max(1.5rem, calc(50vw - 24rem + 1.5rem));
+  padding-right: max(1.5rem, calc(50vw - 24rem + 1.5rem));
+  scrollbar-width: none;
+}
+
+.shot-strip-bleed::-webkit-scrollbar {
+  display: none;
+}
+
 .shot-strip::-webkit-scrollbar-thumb {
   background: var(--rule);
   border-radius: 999px;

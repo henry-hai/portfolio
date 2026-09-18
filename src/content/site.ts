@@ -53,8 +53,26 @@ export const stack = [
   },
 ] as const;
 
-export const beforeThis = [
-  "I cut hair for 14 years and ran my own book the whole time. Booking, pricing, rescheduling, the no-shows, the clients who only text at midnight. The booking platform below exists because I was the one answering those texts, and because the thing I wanted did not exist at a price a single chair could justify.",
-  "It is also most of what I know about shipping something people have to use every day. A booking form that loses a request is not a bug report, it is a client standing outside a locked shop.",
-  "I competed for UC Irvine's Boxing Team and finished as a semi-finalist at Nationals.",
-] as const;
+export const background = {
+  /*
+    The two credentials lead, because a placing and a span of years are results
+    and the paragraphs underneath are only context. The boxing line carries both
+    the placing and the round: he was a semi-finalist and, after the third-place
+    bout was conceded, officially 3rd in the country. Naming the round is what
+    stops the placing reading as dressed up.
+  */
+  credentials: [
+    {
+      headline: "14 Years of Experience as a Barber",
+      line: "My own barbering practice, and my own book the whole time. Pricing, scheduling, retention, the standard.",
+    },
+    {
+      headline: "3rd in the Country",
+      line: "Semi-finalist at the USIBA National Championships, boxing for UC Irvine.",
+    },
+  ],
+  paragraphs: [
+    "Both of those are the same habit. You get one attempt in front of someone who is paying attention, and the work either holds up or it does not. The booking platform above exists because I was the one answering the midnight texts, and because the thing I wanted did not exist at a price a single chair could justify.",
+    "It is also most of what I know about shipping something people have to use every day. A booking form that loses a request is not a bug report, it is a client standing outside a locked shop.",
+  ],
+} as const;
