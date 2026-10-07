@@ -36,7 +36,7 @@ export const projects: Project[] = [
     line: "A hallucination guardrail. Send it one claim and it answers PASS or FAIL against the source documents, with the exact passages it checked and a machine-readable reason when it refuses, so a program can branch on the verdict instead of a person reading a paragraph and hoping.",
     stack: ["Python", "LangGraph", "FastAPI", "Pinecone", "GPT-4o", "MCP", "Streamlit"],
     repo: "https://github.com/henry-hai/SentryQuery-AI",
-    live: "https://sentryquery-verify.onrender.com",
+    live: "https://sentryquery.onrender.com",
     caseStudy: "/work/sentryquery",
     note: "The index holds three FY2025 annual filings, so it rules on claims about those documents rather than the whole market.",
     shots: [
