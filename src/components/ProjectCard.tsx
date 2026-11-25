@@ -62,9 +62,11 @@ export function ProjectCard({
               Read the case study
             </Link>
           ) : null}
-          <a href={project.repo} className={linkClass}>
-            Source
-          </a>
+          {project.repo ? (
+            <a href={project.repo} className={linkClass}>
+              Source
+            </a>
+          ) : null}
           {project.live ? (
             <a href={project.live} className={linkClass}>
               Live site
