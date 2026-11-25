@@ -3,18 +3,18 @@ export const site = {
   // The canonical origin. Every absolute URL on the site is built off this, so
   // a custom domain later is a one line change here.
   url: "https://henryhai.vercel.app",
-  role: "Software Engineer, AI Automation + Full-Stack",
-  email: "hhnguy10@uci.edu",
+  role: "Cloud Full Stack Developer II at Pacific Life",
+  email: "henryhai.nguyen99@gmail.com",
   github: "https://github.com/henry-hai",
   linkedin: "https://www.linkedin.com/in/henryhai99",
   location: "Irvine & Milpitas, California",
   title: "Henry Hai Nguyen",
   description:
-    "MSWE candidate at UC Irvine building agentic systems and full-stack applications. Selected work, with the code behind each one.",
+    "Cloud Full Stack Developer II at Pacific Life and MSWE candidate at UC Irvine. Selected work, with the code behind each one.",
 } as const;
 
 export const intro = [
-  "I am an MSWE candidate at UC Irvine, graduating in December 2026. I build agentic systems and the production Python and TypeScript underneath them.",
+  "I am a Cloud Full Stack Developer II at Pacific Life, building React and Material UI applications on AWS, and an MSWE candidate at UC Irvine, graduating in December 2026.",
   "Most of what I work on has a verification problem at the middle of it. An agent that answers from documents has to be checked against those documents. A booking that reaches a sheet has to be the same booking that reaches the client. The work below is mostly about closing those gaps and proving they are closed.",
 ] as const;
 
@@ -24,32 +24,28 @@ export const stack = [
     items: ["Python", "TypeScript", "JavaScript", "Java", "PHP", "SQL"],
   },
   {
-    label: "AI and ML",
-    items: [
-      "LangGraph",
-      "LangChain",
-      "MCP",
-      "RAG pipelines",
-      "scikit-learn",
-      "PyTorch",
-      "MediaPipe",
-    ],
-  },
-  {
     label: "Web",
-    items: ["Next.js", "React", "Node.js", "Express", "FastAPI", "Tailwind"],
+    items: ["React", "Material UI", "Next.js", "Node.js", "Express", "FastAPI", "Tailwind"],
   },
   {
-    label: "Infrastructure",
+    label: "Cloud",
     items: [
-      "AWS",
-      "GCP",
-      "Docker",
-      "GitHub Actions",
+      "AWS Lambda",
+      "API Gateway",
+      "DynamoDB",
+      "S3",
+      "CloudFront",
+      "Cloudflare Pages",
       "Vercel",
-      "Render",
-      "PostgreSQL",
     ],
+  },
+  {
+    label: "AI and data",
+    items: ["Claude API", "RAG pipelines", "LlamaCloud", "Monte Carlo simulation", "PostgreSQL"],
+  },
+  {
+    label: "Tooling",
+    items: ["Docker", "GitHub Actions", "pytest", "Vitest", "Playwright"],
   },
 ] as const;
 

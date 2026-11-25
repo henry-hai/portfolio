@@ -116,10 +116,7 @@ export default function Home() {
 
           <Section id="contact" label="Contact">
             <p className="text-[15px] leading-relaxed">
-              The fastest way to reach me is email. I am open to fall 2026
-              internships and to full-time roles from December 2026, in AI
-              automation, agentic systems and full-stack engineering. US
-              citizen, no sponsorship needed.
+              The fastest way to reach me is email.
             </p>
             <p className="mt-6">
               <a

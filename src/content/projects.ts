@@ -17,7 +17,8 @@ export type Project = {
   // an apology on a page whose whole job is the opposite.
   status: string;
   stack: string[];
-  repo: string;
+  // Optional because a team project can live in a private repo.
+  repo?: string;
   live?: string;
   caseStudy?: string;
   // Short statement of what the project is not, shown on the card. Every one of
@@ -30,90 +31,11 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "sentryquery",
-    name: "SentryQuery",
-    status: "Live service",
-    line: "A hallucination guardrail. Send it one claim and it answers PASS or FAIL against the source documents, with the exact passages it checked and a machine-readable reason when it refuses, so a program can branch on the verdict instead of a person reading a paragraph and hoping.",
-    stack: ["Python", "LangGraph", "FastAPI", "Pinecone", "GPT-4o", "MCP"],
-    repo: "https://github.com/henry-hai/SentryQuery-AI",
-    live: "https://sentryquery.onrender.com",
-    caseStudy: "/work/sentryquery",
-    note: "The index holds three FY2025 annual filings, so it rules on claims about those documents rather than the whole market.",
-    shots: [
-      {
-        src: "/shots/sentryquery/verify-page.jpg",
-        alt: "The claim-check page, stating what you send and what comes back",
-        w: 2360,
-        h: 1180,
-      },
-      {
-        src: "/shots/sentryquery/verify-pass.jpg",
-        alt: "A PASS verdict beside the source passage it was checked against",
-        w: 2360,
-        h: 1116,
-      },
-      {
-        src: "/shots/sentryquery/verify-api.jpg",
-        alt: "The same check as one HTTP request, returning verdict, reason code and evidence as JSON",
-        w: 2360,
-        h: 1152,
-      },
-      {
-        src: "/shots/sentryquery/verify-dark.jpg",
-        alt: "The claim-check page in dark mode",
-        w: 2360,
-        h: 1180,
-      },
-      {
-        src: "/shots/sentryquery/verify-fail.jpg",
-        alt: "A FAIL verdict, with the Critic's reason and the passage that contradicts the claim",
-        w: 2360,
-        h: 1220,
-      },
-      {
-        src: "/shots/sentryquery/rag-answer.jpg",
-        alt: "A grounded answer with the Critic's verified badge",
-        w: 1400,
-        h: 1383,
-      },
-      {
-        src: "/shots/sentryquery/rag-sources.jpg",
-        alt: "The exact source chunks the agent consulted, by document and page",
-        w: 1370,
-        h: 1400,
-      },
-      {
-        src: "/shots/sentryquery/critic-revision.jpg",
-        alt: "The Critic flagging an unsupported claim and forcing a revision",
-        w: 1400,
-        h: 1393,
-      },
-      {
-        src: "/shots/sentryquery/tavily-web-search.jpg",
-        alt: "A live web search result, marked as not verified against the indexed documents",
-        w: 1373,
-        h: 1400,
-      },
-      {
-        src: "/shots/sentryquery/guardrail-refusal.jpg",
-        alt: "An off-topic question refused before any tool call is made",
-        w: 1400,
-        h: 797,
-      },
-      {
-        src: "/shots/sentryquery/observability.jpg",
-        alt: "Structured run logging with tool routing, verdict and revision count",
-        w: 1400,
-        h: 761,
-      },
-    ],
-  },
-  {
     slug: "barber-booking",
     name: "Barber Booking",
     status: "Live at henryhaistudio.com",
-    line: "The booking platform for my own barbering practice, a static Next.js site on Vercel calling a TypeScript Express API on Render, with the sheet layout pinned by a test that writes a booking and reads it back.",
-    stack: ["TypeScript", "Next.js", "React", "Express", "Google Sheets API", "MCP", "Playwright"],
+    line: "The booking platform for my own barbering practice. The booking API runs on AWS serverless, API Gateway in front of Python Lambdas that block duplicate bookings with a DynamoDB conditional write and send the confirmation emails, which cut the first booking after idle from 51 s to 2.2 s, with 131 pytest tests against mocked AWS.",
+    stack: ["TypeScript", "Next.js", "React", "Python", "AWS Lambda", "API Gateway", "DynamoDB", "CloudFront", "pytest"],
     repo: "https://github.com/henry-hai/barber-booking",
     live: "https://henryhaistudio.com",
     note: "Bookings arrive as requests and I confirm each one myself, which is how a single chair actually runs.",
@@ -187,6 +109,42 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "trauma-copilot",
+    name: "Trauma Guidelines Co-Pilot",
+    status: "MSWE capstone, UCI Health",
+    line: "A clinical RAG assistant for a UCI Health trauma surgeon, built by a 4-person team. I built the React and TypeScript clinician UI, whose inline citations open the cited guideline and page, and turned a teammate's prototype into the FastAPI answer service, with a Claude Sonnet grounding verifier that withholds any answer it cannot support.",
+    stack: ["React", "TypeScript", "Vite", "FastAPI", "LlamaCloud", "Claude", "Vitest"],
+    note: "The verifier was chosen from a live test of four model pairings, and both models route through UCI's ZotGPT gateway for UCI IT governance.",
+    shots: [
+      {
+        src: "/shots/trauma-copilot/answer.jpg",
+        alt: "A guideline answer with numbered citations beside the EAST sources it cites, by guideline and page",
+        w: 1440,
+        h: 1267,
+      },
+    ],
+  },
+  {
+    slug: "fairmark",
+    name: "Fairmark",
+    status: "Live demo",
+    line: "A Python pricing engine for a CFTC-regulated prediction exchange. It compares Kalshi prices to no-vig Pinnacle fair value after fees and runs Monte Carlo simulation, with shared legs sampled once, to estimate each set's chance to finish positive.",
+    stack: ["Python", "Monte Carlo", "Kalshi API", "Cloudflare Pages", "Workers KV", "pytest"],
+    repo: "https://github.com/henry-hai/fairmark",
+    live: "https://fairmark-app.pages.dev",
+    note: "The public site reads demo data only, through an endpoint that cannot reach anything else. A Python poller feeds it with batched, rate-limit-aware calls and 129 tests behind it.",
+    // Only the pricing table. The other captures show stakes and results,
+    // which is not what this card is about.
+    shots: [
+      {
+        src: "/shots/fairmark/price-vs-fair.jpg",
+        alt: "Each market's Kalshi price beside the sportsbook price and the no-vig fair value, with the fee and the edge after fees",
+        w: 1440,
+        h: 1744,
+      },
+    ],
+  },
+  {
     slug: "arthouse-ops",
     name: "arthouse-ops",
     status: "Live dashboard",
@@ -208,25 +166,5 @@ export const projects: Project[] = [
         h: 765,
       },
     ],
-  },
-  {
-    slug: "ai-hairstyler",
-    name: "AI Hairstyler",
-    status: "Computer vision + ML",
-    line: "MediaPipe reads nine geometric ratios off a face photo and a trained RandomForest predicts the shape, deterministic rules pick the cuts, and GPT-4o only writes the explanation.",
-    stack: ["Python", "scikit-learn", "PyTorch", "MediaPipe", "FastAPI", "React"],
-    repo: "https://github.com/henry-hai/AI-Hairstyle-Recommender",
-    note: "The confidence number is the forest's own probability. Calibration was tried and rejected because it zeroed the smallest class.",
-    shots: [],
-  },
-  {
-    slug: "grantsmith",
-    name: "GrantSmith",
-    status: "RAG drafting engine",
-    line: "An AI grant-writing assistant that drafts a funder proposal section by section in a specific nonprofit's voice, retrieving from its past proposals and from the sponsor's own stated priorities, and exporting a formatted .docx.",
-    stack: ["Python", "RAG", "OpenAI", "Anthropic", "numpy", "python-docx"],
-    repo: "https://github.com/henry-hai/grantsmith",
-    note: "Provider agnostic. The model id and the provider are two environment variables, not a code change.",
-    shots: [],
   },
 ];
